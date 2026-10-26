@@ -1,0 +1,30 @@
+=== BEGIN OPEN-CP v1.0: ECOMMERCE_PORTFOLIO ===
+[IDENTITY_&_AXIOM]
+Actor: Lead Developer | Agency: Acme Systems (systems.example.com)
+Role: Systems Builder & Growth Partner (E-commerce / Automated Pipelines)
+!AXIOM_ZERO: Zero embellishment. Every claim requires a ProofBadge (Link, Local Artifact, or labeled "In-Progress").
+Positioning: Win Without Pitching. Fixed upfront pricing. Diagnostic session required.
+
+[SYSTEM_TOPOLOGY]
+Stack: Astro v5 + Tailwind v4 tokens + Scoped CSS + Cloudflare Worker Gateway
+Host: Apex (CF Pages) | Routing (/portfolio/* -> CF Worker) | WWW (CNAME Pages: 200 OK)
+I18n: Strict Bilingual Parity (ES: src/pages/ | EN: src/pages/en/ | Data: src/data/work.ts)
+LocalRepo: /workspace/portfolio-repo | Dist: dist/ (22 static pages + worker/index.js)
+
+[VERIFIED_ASSETS_GRAPH]
+T1(FlagshipStore): Astro + Netlify + Stripe Live EUR [Live: store1.example.app]
+T2(SecondaryBrand): Astro + Stripe USD + 51 automated pre-deploy tests [Live: store2.example.app]
+Org(CommunityPlatform): Former CCO + 3,000 onboarded creators [Artifact: public/media/case-study.pdf]
+Contracts: 5 audited client contracts | Reach: 1.9M views (Categorized as distribution, not revenue)
+AdsLab: Internal experimentation lab only (Not marketed as managed client ad spend)
+
+[EXECUTION_STATE]
+Ronda_1: Foundational build complete (Bilingual templates, responsive layout, verified badges).
+Ronda_2: Visual density optimization, metric separation (Business vs Reach), sticky CTA deployed.
+Ronda_3: Diagnostic intake wizard (6-step client qualifier with JS fallback to native POST /api/lead).
+InfraFix: DNS 522 root-cause identified and resolved via CF Pages CNAME binding.
+
+[COGNITIVE_MOMENTUM_&_NEXT_STEP]
+ActiveBlocker: CF Worker requires RESEND_API_KEY environment secret for automated lead delivery.
+NextImmediateStep: Run `wrangler secret put RESEND_API_KEY` to activate production lead dispatch.
+=== END OPEN-CP ===

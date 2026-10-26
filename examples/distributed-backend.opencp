@@ -1,0 +1,27 @@
+=== BEGIN OPEN-CP v1.0: DISTRIBUTED_BACKEND ===
+[IDENTITY_&_AXIOM]
+Actor: Core Infrastructure Team | Project: EventRelay-Core
+Mission: High-throughput financial event ingestion and consensus ledger
+!AXIOM_ZERO: Exactly-once delivery semantics for all settled ledger entries. Zero memory allocation on hot path.
+Security: mTLS on all inter-service mesh RPCs + Ed25519 payload signatures.
+
+[SYSTEM_TOPOLOGY]
+Stack: Rust (Axum, Tokio) + Go 1.23 (Consensus Engine) + NATS JetStream + ScyllaDB
+Host: Kubernetes (EKS eu-central-1) | ServiceMesh: Cilium eBPF | Ingress: Envoy Gateway
+LocalRepo: /workspace/eventrelay | MainBranch: main | TargetBinary: target/release/relay-daemon
+
+[VERIFIED_ASSETS_GRAPH]
+S1(IngressGateway): Rust Axum -> NATS Stream `RAW_TX` [TPS: 85,000 sustained]
+S2(ConsensusWorker): Raft quorum group (3 nodes) -> ScyllaDB ledger
+Tests: 142 integration tests + Jepsen network partition suite passed on v0.9.4
+Observability: OpenTelemetry tracing export to Grafana Tempo
+
+[EXECUTION_STATE]
+Phase_1: Core streaming pipeline stabilized.
+Phase_2: ScyllaDB schema migrations applied with Raft lease locking.
+ClosedBug: Resolved Tokio task starvation under sudden 100k burst spikes.
+
+[COGNITIVE_MOMENTUM_&_NEXT_STEP]
+ActiveBlocker: TLS handshake latency spike observed when connecting newly provisioned worker nodes.
+NextImmediateStep: Audit TLS ticket resumption configuration in `pkg/mesh/transport.go` at line 144.
+=== END OPEN-CP ===
